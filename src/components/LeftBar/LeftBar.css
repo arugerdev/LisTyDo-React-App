@@ -132,6 +132,8 @@
 
     .main-branchs {
         flex-direction: row;
+        max-width: calc(100% - 180px);
+        overflow: auto;
     }
 
 
