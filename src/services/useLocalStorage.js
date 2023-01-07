@@ -1,0 +1,29 @@
+import { useState } from "react";
+import { handError } from "./handError";
+
+export function useLocalStorage(key, initialValue) {
+    const [storedValue, setStoredValue] = useState(() => {
+        try {
+            const item = window.localStorage.getItem(key)
+            return item ? JSON.parse(item) : initialValue;
+        }
+        catch (error) {
+            return initialValue
+        }
+    })
+
+    const setValue = value => {
+        console.log("Set value " + value)
+        try {
+            setStoredValue(value)
+            window.localStorage.setItem(key, JSON.stringify(value))
+        }
+        catch (error) {
+            handError(error)
+        }
+    }
+
+    return [storedValue, setValue]
+
+
+}

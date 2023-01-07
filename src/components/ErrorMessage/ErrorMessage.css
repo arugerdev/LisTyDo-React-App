@@ -1,0 +1,38 @@
+.error-panel {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 35px;
+    box-shadow: 0px 0px 15px var(--bg-darkness);
+    background: var(--bg-darkness);
+    left: 50%;
+    transform: translate(-50%, 3000%);
+    font-size: calc(1px + 1vmin);
+    color: var(--wrong-color);
+    
+    transition: all .3s ease;
+}
+
+@keyframes alertAnimation {
+    0% {
+    transform: translate(-50%, 100%);
+    }
+
+    20% {
+    transform: translate(-50%, -10px);
+    }
+
+    80% {
+    transform: translate(-50%, -10px);
+    }
+
+    100% {
+    transform: translate(-50%, 100%);
+    }
+}

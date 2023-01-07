@@ -1,0 +1,135 @@
+.activity-parent {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px var(--bg-darkness-dark);
+    background: var(--bg-darkness-dark);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    cursor: all-scroll;
+}
+
+
+.activity{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+
+.activity-name {
+    display: flex;
+    margin: 15px;
+    font-size: calc(5px + 1.5vmin);
+    border-bottom: 1px solid var(--bg-darkness);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--bg);
+    inline-size: auto;
+
+}
+
+.activity-description {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    font-size: calc(1px + 1.5vmin);
+    color: var(--bg-darkness);
+    align-items: center;
+    justify-content: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.activity:hover {
+    height: auto;
+}
+
+.activity-parent:hover .activity-buttons {
+    display: flex;
+}
+
+.activity-buttons {
+    display: none;
+    height: 90%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    background: var(--bg-darkness-dark);
+}
+
+.activity-button,
+.remove-activity-button {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    color: var(--text);
+    background: var(--bg-darkness);
+    box-shadow: 0px 0px 10px var(--bg-darkness);
+    cursor: pointer;
+
+    transition: all .2s ease;
+}
+
+.activity-button>svg,
+.remove-activity-button>svg {
+    display: flex;
+    margin: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.activity-button:hover,
+.remove-activity-button:hover {
+    transform: scale(1.1);
+}
+
+.remove-activity-button {
+    background: var(--wrong-color);
+    box-shadow: 0px 0px 10px var(--wrong-color);
+}
+
+.activity-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.activity:hover .activity-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity:hover .activity-content{
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .activity-name{
+        font-weight: 1000;
+        font-size: medium;
+    }
+    .activity-description
+    {
+        font-weight: 600;
+        font-size: small;
+    }
+}

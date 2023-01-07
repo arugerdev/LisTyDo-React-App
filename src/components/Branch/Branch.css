@@ -1,0 +1,41 @@
+.branch {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+
+.branch-button {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 35px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--bg);
+    box-shadow: 0px 0px 10px var(--bg);
+
+    transition: all .2s ease;
+}
+
+.branch-button>svg {
+    color: var(--text);
+}
+
+.branch-button:hover {
+    transform: scale(1.1);
+}
+
+.branch-name {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.active {
+    background: var(--correct-color);
+    box-shadow: 0px 0px 10px var(--correct-color);
+}

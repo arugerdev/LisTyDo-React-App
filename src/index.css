@@ -1,13 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+body.light {
+  --bg: #f8f9fa;
+  --bg-dark: #dee2e6;
+  --bg-darkness: #adb5bd;
+  --bg-darkness-dark: #495057;
+  --correct-color: #02c39a;
+  --wrong-color: #e5383b;
+  --text: #343a40;
+  --text-dark: #212529;
+}
+
+body.dark {
+  --bg: #212529;
+  --bg-dark: #343a40;
+  --bg-darkness: #495057;
+  --bg-darkness-dark: #adb5bd;
+  --correct-color: #02c39a;
+  --wrong-color: #e5383b;
+  --text: #dee2e6;
+  --text-dark: #f8f9fa;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  scroll-behavior: smooth;
+  /* transition: all .15s ease; */
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: var(--bg-darkness);
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--text-dark);
+}
+
+h1,
+h2 {
+  color: var(--text-dark);
+}
+
+p {
+  color: var(--text);
 }

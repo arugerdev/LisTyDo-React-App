@@ -1,0 +1,106 @@
+.column {
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    box-shadow: 0px 0px 15px var(--bg-darkness);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 35px;
+    background: var(--bg-darkness);
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 0;
+    min-width: 150px;
+
+}
+
+.column-name {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    height: fit-content;
+    border: none;
+    border-bottom: 3px solid var(--bg-darkness-dark);
+    background: var(--bg-darkness);
+    color: var(--text);
+    font-size: calc(10px + 1.5vmin);
+    font-weight: 600;
+    resize: none;
+    min-height: 30px;
+}
+
+.remove-column {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: var(--wrong-color);
+    box-shadow: 0px 0px 5px var(--wrong-color);
+
+    transition: all .2s ease;
+}
+
+.remove-column>svg {
+    color: var(--text);
+}
+
+.remove-column:hover {
+    transform: scale(1.1);
+    background: var(--bg);
+    box-shadow: 0px 0px 5px var(--bg);
+}
+
+.actvitys-parent {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.create-new-activity-button {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    padding: 15px;
+    margin-top: -5px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.create-new-activity-button>svg {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+}
+
+.create-new-activity-button:hover {
+    background: var(--bg-dark);
+
+}
+
+.draggeable-parent {
+    display: flex;
+    width: 100%;
+}

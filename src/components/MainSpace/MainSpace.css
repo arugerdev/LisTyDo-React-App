@@ -1,0 +1,143 @@
+.main-space-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+
+.main-space {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    border: none;
+    box-shadow: 0px 0px 15px var(--bg) inset;
+    align-items: flex-start;
+    flex-direction: column;
+    background: var(--bg-dark);
+    margin: 14vw;
+    padding: 1vw;
+
+    max-height: 70%;
+    overflow: hidden;
+
+}
+
+.main-columns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+}
+
+.add-column-button {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    padding: 15px;
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-darkness);
+    overflow: hidden;
+}
+
+.add-column-button>svg {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+}
+
+.add-column-button:hover {
+    background: var(--bg-darkness-dark);
+}
+
+.main-branch-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 99%;
+    height: auto;
+    margin: 5px;
+    border: none;
+    font-size: calc(25px + 1.5vmin);
+    font-weight: 600;
+    resize: none;
+    border-radius: 35px;
+    text-decoration: underline var(--bg-darkness-dark);
+    background: var(--bg-dark);
+    color: var(--text);
+}
+
+.remove-branch {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    border-radius: 50%;
+    margin: 20px;
+    cursor: pointer;
+    padding: 5px;
+    background: var(--wrong-color);
+    box-shadow: 0px 0px 5px var(--wrong-color);
+
+    transition: all .2s ease;
+}
+
+.remove-branch>svg {
+    color: var(--text);
+}
+
+.remove-branch:hover {
+    transform: scale(1.1);
+    background: var(--bg);
+    box-shadow: 0px 0px 5px var(--bg);
+}
+
+@media screen and (max-width: 600px) {
+    .main-space-parent {
+        margin-top: 15rem;
+        height: calc(100% - 15rem - 50px);
+        margin: 10px;
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .main-space {
+
+        margin: 0;
+        padding: 0;
+        max-width: 90%;
+        max-height: 100%;
+        height: 100%;
+        margin: 10px;
+        padding: 10px;
+
+    }
+
+    .remove-branch{
+        width: 25px;
+        height: 25px;
+        margin: 5px;
+    }
+
+}
