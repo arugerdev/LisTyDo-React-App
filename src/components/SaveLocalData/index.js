@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 import './SaveLocalData.css'
 
 export default function SaveLocalData() {
-    const columns = [{ name: 'New Column', id: 0, activities: [{ id: 0, name: 'New Element', description: 'Element description.' }] }]
+    const columns = [{ name: 'New Column', id: 0, activities: [] }]
     var [branchs, setBranchs] = useLocalStorage('branchs', [{ props: { key: 0, id: 0, name: 'New List', columns: columns } }])
     const [path, pushLocation] = useLocation()
     const [match, params] = useRoute("/branch/:id")
@@ -42,7 +42,7 @@ export default function SaveLocalData() {
                 MaxColumn = currentBranch[0].props.columns.reduce((prev, current) => (prev.id > current.id) ? prev : current)
             }
 
-            currentBranch[0].props.columns.push({ name: "New Column " + (parseInt(MaxColumn.id) + 1), id: parseInt(MaxColumn.id) + 1, activities: [{ id: 0, name: 'New Element', description: 'Description of element.' }] })
+            currentBranch[0].props.columns.push({ name: "New Column " + (parseInt(MaxColumn.id) + 1), id: parseInt(MaxColumn.id) + 1, activities: [] })
             setBranchs(branchs)
 
             window.location.reload(false)
