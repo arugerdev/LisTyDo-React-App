@@ -81,7 +81,7 @@ export default function SaveLocalData() {
         if (branchs.length != 0) {
             MaxBranch = branchs.reduce((prev, current) => (prev.props.id > current.props.id) ? prev : current)
         }
-        branchs.push(<Branch id={parseInt(MaxBranch.props.id) + 1} name={'New Branch ' + branchs.length} columns={columns}></Branch>)
+        branchs.push(<Branch id={parseInt(MaxBranch.props.id) + 1} name={'New List ' + branchs.length} columns={columns}></Branch>)
         setBranchs(branchs)
         window.location.reload(false)
     }
