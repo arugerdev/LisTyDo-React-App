@@ -64,6 +64,17 @@ export default function AboutPage() {
                     The goal is to create a website where you can use the features and your data is not lost, and learn how to use the 'localStorage' system.
                 </p>
 
+                <h1 className="title warning">
+                    Warning!
+                </h1>
+                <p className="text no-bold small red">
+                    To remove al data please, click in this button:
+                </p>
+
+                <button className="remove-data" onClick={() => {
+                    window.localStorage.clear()
+                    window.location.reload(false)
+                }}>Remove all data</button>
 
                 <SocialNetworks></SocialNetworks>
 

@@ -14,7 +14,7 @@
 }
 
 
-.activity{
+.activity {
     display: flex;
     width: 100%;
     height: 100%;
@@ -63,7 +63,31 @@
     align-items: center;
     justify-content: center;
     transition: all .2s ease;
-    background: var(--bg-darkness-dark);
+    margin: 3px;
+    padding: 3px;
+}
+
+.directions-buttons {
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    max-width: 50px;
+    cursor: pointer;
+}
+
+.directions-buttons>svg {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    color: var(--bg);
+}
+
+.activity:hover .directions-buttons {
+    display: flex;
 }
 
 .activity-button,
@@ -117,18 +141,20 @@
     flex-direction: column;
 }
 
-.activity:hover .activity-content{
+.activity:hover .activity-content {
     width: 100%;
     height: 100%;
 }
 
+
+
 @media screen and (max-width: 600px) {
-    .activity-name{
+    .activity-name {
         font-weight: 1000;
         font-size: medium;
     }
-    .activity-description
-    {
+
+    .activity-description {
         font-weight: 600;
         font-size: small;
     }

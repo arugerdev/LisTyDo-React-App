@@ -1,3 +1,11 @@
+.leftbar-parent{
+    display: flex;
+    position: absolute;
+    left: 0;
+    width: 10%;
+    height: 100%;
+}
+
 .leftbar {
     display: flex;
     border-radius: 35px;

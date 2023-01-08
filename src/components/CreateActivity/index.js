@@ -20,7 +20,7 @@ export default function CreateActivity({ handleClose, handleCreate }) {
                 <h1 className='title'>Create new Activity</h1>
                 <form className='create-new-activity-form' onSubmit={(e) => handleCreate(e, newName, newDesc)}>
                     <label className='create-new-activity-label' >*Name:
-                        <input onChange={HandleChangeName} className='create-new-activity-input-text name' required='true' placeholder='New Activity' type="text"></input>
+                        <input onChange={HandleChangeName} className='create-new-activity-input-text name' required={true} placeholder='New Activity' type="text"></input>
                     </label>
                     <label className='create-new-activity-label' >Description:
                         <textarea onChange={HandleChangeDesc} className='create-new-activity-input-text description' placeholder='Description of activity....' ></textarea>

@@ -12,8 +12,8 @@ import { useEffect, useState } from 'react'
 import './SaveLocalData.css'
 
 export default function SaveLocalData() {
-    const columns = [{ name: 'New Column', id: 0, activities: [] }]
-    var [branchs, setBranchs] = useLocalStorage('branchs', [{ props: { key: 0, id: 0, name: 'New List', columns: columns } }])
+    const columns = [{ name: 'New Column', id: 0, color: null, activities: [] }]
+    var [branchs, setBranchs] = useLocalStorage('branchs', [{ props: { key: 0, id: 0, name: 'New List', color: null, columns: columns } }])
     const [path, pushLocation] = useLocation()
     const [match, params] = useRoute("/branch/:id")
     const [updates, setUpdates] = useState(0);
@@ -26,23 +26,23 @@ export default function SaveLocalData() {
     }, [branchs, path, match])
 
     const HandleChangeName = (evt, id) => {
-        const currentBranch = branchs.filter((e) => e.props.id == id)
+        const currentBranch = branchs.find((e) => e.props.id == id)
 
-        currentBranch[0].props.name = evt.target.value
+        currentBranch.props.name = evt.target.value
         setBranchs(branchs)
     }
 
     const HandleCreateColumn = (id) => {
-        const currentBranch = branchs.filter((e) => e.props.id == id)
+        const currentBranch = branchs.find((e) => e.props.id == id)
 
-        if (currentBranch[0].props.columns.length < 5) {
+        if (currentBranch.props.columns.length < 5) {
             var MaxColumn = { column: { id: [-1] } }
 
-            if (currentBranch[0].props.columns.length > 0) {
-                MaxColumn = currentBranch[0].props.columns.reduce((prev, current) => (prev.id > current.id) ? prev : current)
+            if (currentBranch.props.columns.length > 0) {
+                MaxColumn = currentBranch.props.columns.reduce((prev, current) => (prev.id > current.id) ? prev : current)
             }
 
-            currentBranch[0].props.columns.push({ name: "New Column " + (parseInt(MaxColumn.id) + 1), id: parseInt(MaxColumn.id) + 1, activities: [] })
+            currentBranch.props.columns.push({ name: "New Column " + (parseInt(MaxColumn.id) + 1), id: parseInt(MaxColumn.id) + 1, color: null, activities: [] })
             setBranchs(branchs)
 
             window.location.reload(false)
@@ -53,22 +53,24 @@ export default function SaveLocalData() {
     }
 
     const HandleChangeColumnName = (evt, id, column_id) => {
-        branchs[id].props.columns[column_id].name = evt.target.value
+        const currentBranch = branchs.find((e) => e.props.id == id)
+        const currentColumn = currentBranch.props.columns.find((e) => e.id == column_id)
+        currentColumn.name = evt.target.value
         setBranchs(branchs)
     }
 
 
     const HandleClickRemoveColumn = (id, column_id) => {
-        const currentBranch = branchs.filter((e) => e.props.id == id)
-        const index = currentBranch[0].props.columns.indexOf(currentBranch[0].props.columns.find(e => e.id === column_id))
-        currentBranch[0].props.columns.splice(index, 1)
+        const currentBranch = branchs.find((e) => e.props.id == id)
+        const index = currentBranch.props.columns.indexOf(currentBranch.props.columns.find(e => e.id === column_id))
+        currentBranch.props.columns.splice(index, 1)
         setBranchs(branchs)
 
         window.location.reload(false)
     }
 
     const HandleClickRemove = (id) => {
-        setBranchs(branchs.filter((e) => e.props.id != id))
+        setBranchs(branchs.find((e) => e.props.id != id))
         pushLocation('/')
 
         window.location.reload(false)
@@ -86,37 +88,73 @@ export default function SaveLocalData() {
         window.location.reload(false)
     }
     const HandleRemoveActivity = (branch_id, column_id, activity_id) => {
-        const currentBranch = branchs.filter((e) => e.props.id == branch_id)
-        const currentColumn = currentBranch[0].props.columns.filter((e) => e.id == column_id)
-        const index = currentColumn[0].activities.indexOf(currentColumn[0].activities.find(e => e.id == activity_id))
+        const currentBranch = branchs.find((e) => e.props.id == branch_id)
+        const currentColumn = currentBranch.props.columns.find((e) => e.id == column_id)
+        const index = currentColumn.activities.indexOf(currentColumn.activities.find(e => e.id == activity_id))
 
-        currentColumn[0].activities.splice(index, 1)
+        currentColumn.activities.splice(index, 1)
         setBranchs(branchs)
 
         window.location.reload(false)
     }
     const HandleSaveActivityMods = (branch_id, column_id, activity_id, newName, newDesc) => {
-        const currentBranch = branchs.filter((e) => e.props.id == branch_id)
-        const currentColumn = currentBranch[0].props.columns.filter((e) => e.id == column_id)
-        const index = currentColumn[0].activities.indexOf(currentColumn[0].activities.find(e => e.id == activity_id))
+        const currentBranch = branchs.find((e) => e.props.id == branch_id)
+        const currentColumn = currentBranch.props.columns.find((e) => e.id == column_id)
+        const index = currentColumn.activities.indexOf(currentColumn.activities.find(e => e.id == activity_id))
 
-        currentColumn[0].activities[index].name = newName;
-        currentColumn[0].activities[index].description = newDesc;
+        currentColumn.activities[index].name = newName;
+        currentColumn.activities[index].description = newDesc;
 
         setBranchs(branchs)
     }
     const HandleCreateActivity = (branch_id, column_id, newName, newDesc) => {
-        const currentBranch = branchs.filter((e) => e.props.id == branch_id)
-        const currentColumn = currentBranch[0].props.columns.filter((e) => e.id == column_id)
+        const currentBranch = branchs.find((e) => e.props.id == branch_id)
+        const currentColumn = currentBranch.props.columns.find((e) => e.id == column_id)
         var MaxActivity = { id: [-1] }
 
-        if (currentColumn[0].activities.length > 0) {
-            MaxActivity = currentColumn[0].activities.reduce((prev, current) => (prev.id > current.id) ? prev : current)
+        if (currentColumn.activities.length > 0) {
+            MaxActivity = currentColumn.activities.reduce((prev, current) => (prev.id > current.id) ? prev : current)
         }
-        currentColumn[0].activities.push({ name: newName, description: newDesc, id: parseInt(MaxActivity.id) + 1 })
+        currentColumn.activities.push({ name: newName, description: newDesc, id: parseInt(MaxActivity.id) + 1 })
         setBranchs(branchs)
 
         window.location.reload(false)
+    }
+
+    const HandleChangeBranchColor = (branch_id, newColor) => {
+        const currentBranch = branchs.find((e) => e.props.id == branch_id)
+        currentBranch.props.color = newColor;
+        setBranchs(branchs)
+    }
+    const HandleChangeColumnColor = (branch_id, column_id, newColor) => {
+        const currentBranch = branchs.find((e) => e.props.id == branch_id)
+        const currentColumn = currentBranch.props.columns.find((e) => e.id == column_id)
+
+        currentColumn.color = newColor
+        setBranchs(branchs)
+    }
+
+    const HandleChangeActivityColumnPosition = (branch_id, column_id, activity_id, toColumn_index) => {
+        const currentBranch = branchs.find((e) => e.props.id == branch_id)
+        const currentColumn = currentBranch.props.columns.find((e) => e.id == column_id)
+        const activityData = currentColumn.activities.find(e => e.id == activity_id)
+
+        if (currentColumn.activities.filter((e) => e.id == activity_id).length > 1) {
+            const MaxActivity = currentColumn.activities.reduce((prev, current) => (prev.id > current.id) ? prev : current)
+
+            activityData.id = parseInt(MaxActivity.id) + 1;
+            activity_id = parseInt(activity_id) + 1;
+        }
+
+        const index = currentColumn.activities.indexOf(currentColumn.activities.find(e => e.id == activity_id))
+
+        currentColumn.activities.splice(index, 1)
+        currentBranch.props.columns[toColumn_index].activities.push(activityData);
+
+        setBranchs(branchs)
+
+        window.location.reload(false)
+
     }
 
     useEffect(() => {
@@ -133,7 +171,7 @@ export default function SaveLocalData() {
                 <Route path="/" component={AboutPage} ></Route>
                 {
                     (match) &&
-                    <MainSpace id={params.id} branchs={branchs} handleCreateActivity={HandleCreateActivity} handleSaveActivityMods={HandleSaveActivityMods} handleRemoveActivity={HandleRemoveActivity} handleChangeColumnName={HandleChangeColumnName} handleClickRemoveColumn={HandleClickRemoveColumn} handleChangeName={HandleChangeName} handleCreateColumn={HandleCreateColumn} handleClickRemove={HandleClickRemove}></MainSpace>
+                    <MainSpace id={params.id} branchs={branchs} handleChangeActivityColumnPosition={HandleChangeActivityColumnPosition} handleChangeColumnColor={HandleChangeColumnColor} handleChangeBranchColor={HandleChangeBranchColor} handleCreateActivity={HandleCreateActivity} handleSaveActivityMods={HandleSaveActivityMods} handleRemoveActivity={HandleRemoveActivity} handleChangeColumnName={HandleChangeColumnName} handleClickRemoveColumn={HandleClickRemoveColumn} handleChangeName={HandleChangeName} handleCreateColumn={HandleCreateColumn} handleClickRemove={HandleClickRemove}></MainSpace>
                 }
             </Switch>
         </div>

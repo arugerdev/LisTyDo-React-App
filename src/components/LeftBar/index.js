@@ -24,7 +24,7 @@ export default function LeftBar({ MaxBranchId, handleClickGoToBranch, handleCrea
                 <div className="main-branchs">
                     {
                         newbranchs.map((item) =>
-                            <Branch key={item.props.id} id={item.props.id} name={item.props.name} handleClickGoToBranch={() => handleClickGoToBranch(item.props.id)}></Branch>)
+                            <Branch key={item.props.id} color={item.props.color} id={item.props.id} name={item.props.name} handleClickGoToBranch={() => handleClickGoToBranch(item.props.id)}></Branch>)
                     }
                 </div>
                 <div className="create-button">

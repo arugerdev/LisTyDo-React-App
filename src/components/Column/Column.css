@@ -2,7 +2,7 @@
     display: flex;
     height: 90%;
     flex-direction: column;
-    box-shadow: 0px 0px 15px var(--bg-darkness);
+    box-shadow: 0px 0px 15px  var(--bg-darkness-dark) inset;
     margin: 20px;
     padding: 20px;
     border-radius: 35px;
@@ -12,8 +12,9 @@
     overflow-x: hidden;
     overflow-y: auto;
     padding-bottom: 0;
-    min-width: 150px;
-
+    min-width: 12rem;
+    max-width: 100%;
+    width: 100%;
 }
 
 .column-name {
@@ -25,13 +26,64 @@
     width: auto;
     height: fit-content;
     border: none;
-    border-bottom: 3px solid var(--bg-darkness-dark);
-    background: var(--bg-darkness);
+    background: none;
     color: var(--text);
     font-size: calc(10px + 1.5vmin);
     font-weight: 600;
     resize: none;
     min-height: 30px;
+    text-decoration: underline 3px var(--bg-darkness-dark);
+}
+
+
+.column-color-input {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    border-radius: 50%;
+    margin: 10px;
+    border: none;
+    padding: 0;
+    box-sizing: unset;
+    cursor: pointer;
+    background: var(--bg-darkness-dark);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    box-shadow: 0px 0px 5px var(--text);
+}
+
+.column-color-input::-webkit-color-swatch-wrapper {
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.column-color-input::-webkit-color-swatch {
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.column-color-input:hover {
+    transform: scale(1.1);
 }
 
 .remove-column {
@@ -47,6 +99,7 @@
     cursor: pointer;
     background: var(--wrong-color);
     box-shadow: 0px 0px 5px var(--wrong-color);
+    margin: 10px;
 
     transition: all .2s ease;
 }
@@ -103,4 +156,19 @@
 .draggeable-parent {
     display: flex;
     width: 100%;
+}
+
+.top-column-buttons {
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .column{
+        min-width: 50%;
+    }
 }
