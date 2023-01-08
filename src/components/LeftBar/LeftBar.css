@@ -9,9 +9,6 @@
 .leftbar {
     display: flex;
     border-radius: 35px;
-    /* min-height: 50px;
-    min-width: 50px;
-    max-width: 60px; */
     max-height: 95vh;
     height: auto;
     box-shadow: 0px 0px 10px var(--bg-darkness);
@@ -24,7 +21,6 @@
     left: -65px;
     top: 50%;
     transform: translate(0, -50%);
-    /* border: 3px solid var(--bg-darkness); */
 
     transition: all .2s ease;
 }
@@ -86,9 +82,6 @@
 .leftbar-attached {
     display: flex;
     border-radius: 35px;
-    /* min-height: 50px;
-    min-width: 50px;
-    max-width: 60px; */
     max-height: 95vh;
     height: auto;
     box-shadow: 0px 0px 10px var(--bg-darkness);
@@ -101,8 +94,6 @@
     left: 0;
     top: 50%;
     transform: translate(0, -50%);
-
-    /* border: 3px solid var(--bg-darkness); */
 
     transition: all .2s ease;
 }

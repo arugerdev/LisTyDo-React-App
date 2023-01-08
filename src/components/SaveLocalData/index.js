@@ -36,7 +36,7 @@ export default function SaveLocalData() {
         const currentBranch = branchs.find((e) => e.props.id == id)
 
         if (currentBranch.props.columns.length < 5) {
-            var MaxColumn = { column: { id: [-1] } }
+            var MaxColumn = { id: '-1' };
 
             if (currentBranch.props.columns.length > 0) {
                 MaxColumn = currentBranch.props.columns.reduce((prev, current) => (prev.id > current.id) ? prev : current)

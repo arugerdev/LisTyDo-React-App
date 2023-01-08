@@ -46,9 +46,7 @@ export default function Column({ branchs, handleChangeActivityColumnPosition, ha
 
             <div className="actvitys-parent">
                 {currentColumn.activities.map((act, i) =>
-                    <div className="draggeable-parent" >
-                        <Activity key={act.id} branchs={branchs} handleChangeActivityColumnPosition={handleChangeActivityColumnPosition} handleSaveActivityMods={handleSaveActivityMods} branch_id={branch_id} column_id={column_id} activity_id={act.id} handleRemoveActivity={handleRemoveActivity} activity_data={act}></Activity>
-                    </div>
+                    <Activity key={act.id} branchs={branchs} handleChangeActivityColumnPosition={handleChangeActivityColumnPosition} handleSaveActivityMods={handleSaveActivityMods} branch_id={branch_id} column_id={column_id} activity_id={act.id} handleRemoveActivity={handleRemoveActivity} activity_data={act}></Activity>
                 )
                 }
                 <button className="create-new-activity-button" onClick={CreateNewActivity}>
