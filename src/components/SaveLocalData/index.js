@@ -70,7 +70,11 @@ export default function SaveLocalData() {
     }
 
     const HandleClickRemove = (id) => {
-        setBranchs(branchs.find((e) => e.props.id != id))
+        branchs.splice(
+            branchs.indexOf(branchs.find((e) => e.props.id == id))
+            , 1
+        )
+        setBranchs(branchs)
         pushLocation('/')
 
         window.location.reload(false)
@@ -154,7 +158,6 @@ export default function SaveLocalData() {
         setBranchs(branchs)
 
         window.location.reload(false)
-
     }
 
     useEffect(() => {
@@ -166,7 +169,7 @@ export default function SaveLocalData() {
 
     return (
         <div className='main'>
-            <LeftBar MaxBranchId={parseInt(currentMaxBranch.props.id) + 1} handleCreateBranch={HandleCreateBranch} newbranchs={branchs}></LeftBar>
+            <LeftBar MaxBranchId={parseInt(currentMaxBranch.props.id) + 1} handleCreateBranch={HandleCreateBranch} branchs={branchs}></LeftBar>
             <Switch>
                 <Route path="/" component={AboutPage} ></Route>
                 {

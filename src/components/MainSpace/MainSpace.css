@@ -12,7 +12,7 @@
     display: flex;
     width: 100%;
     height: 100%;
-    border-radius: 35px;
+    border-radius: 20px;
     border: none;
     box-shadow: 0px 0px 15px var(--bg) inset;
     align-items: flex-start;
@@ -21,14 +21,13 @@
     margin: 14vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    padding: 1vw;
 
     max-height: 90%;
     overflow: hidden;
 
 }
 
-.main-top-inputs-parents{
+.main-top-inputs-parents {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -54,8 +53,8 @@
     width: 100%;
     height: 30px;
     padding: 15px;
-    border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     border: none;
     cursor: pointer;
     transition: all .2s ease;
@@ -89,7 +88,6 @@
     font-size: calc(25px + 1.5vmin);
     font-weight: 600;
     resize: none;
-    border-radius: 35px;
     text-decoration: underline var(--bg-darkness-dark);
     background: none;
     color: var(--text);
@@ -184,20 +182,19 @@
     }
 
     .main-space {
-
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
         border-radius: 0;
-        min-height:  calc( 100% - 5rem);
-        padding-top: 25%;
-        margin-bottom: 5%;
+        max-height: 100%;
     }
 
-    .add-column-button{
+    .add-column-button {
         border-radius: 0;
+        height: 5rem;
     }
+
     .remove-branch {
         width: 35px;
         height: 35px;

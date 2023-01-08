@@ -5,7 +5,7 @@ import SocialNetworks from "components/SocialNetworks";
 
 export default function AboutPage() {
     return (
-        <div className="main-space-parent">
+        <div className="about-space-parent">
             <div className="about-content">
 
                 <div className="logo-parent">
@@ -75,9 +75,9 @@ export default function AboutPage() {
                     window.localStorage.clear()
                     window.location.reload(false)
                 }}>Remove all data</button>
-
-                <SocialNetworks></SocialNetworks>
-
+                <div className='sn-parent'>
+                    <SocialNetworks></SocialNetworks>
+                </div>
             </div>
         </div >
     )

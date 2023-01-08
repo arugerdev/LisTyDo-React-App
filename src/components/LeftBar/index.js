@@ -4,12 +4,14 @@ import "./LeftBar.css"
 import { Link } from "wouter";
 import { useLocalStorage } from "services/useLocalStorage";
 
-export default function LeftBar({ MaxBranchId, handleClickGoToBranch, handleCreateBranch, newbranchs }) {
+export default function LeftBar({ MaxBranchId, handleClickGoToBranch, handleCreateBranch, branchs }) {
     const [attached, setAttached] = useLocalStorage('attached', 'true')
 
     function changeAttachedMode() {
         setAttached((attached === 'true' ? 'false' : 'true'))
     }
+
+    console.log(branchs)
 
     return (
         <div className="leftbar-parent">
@@ -22,9 +24,9 @@ export default function LeftBar({ MaxBranchId, handleClickGoToBranch, handleCrea
                     </Link>
                 </div>
                 <div className="main-branchs">
-                    {
-                        newbranchs.map((item) =>
-                            <Branch key={item.props.id} color={item.props.color} id={item.props.id} name={item.props.name} handleClickGoToBranch={() => handleClickGoToBranch(item.props.id)}></Branch>)
+                    {branchs.map((item, i) =>
+                        <Branch key={item.props.id} color={item.props.color} id={item.props.id} name={item.props.name} handleClickGoToBranch={() => handleClickGoToBranch(item.props.id)}></Branch>
+                    )
                     }
                 </div>
                 <div className="create-button">
